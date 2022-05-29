@@ -13,5 +13,4 @@ public interface EjemploInterfaceFuncional {
     static void imprimir(String aImprimir){
         System.out.println(aImprimir);
     }
-
 }
