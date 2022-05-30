@@ -3,13 +3,19 @@ package poo.estructuras;
 import poo.Abuelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Arreglos {
 
     public static void main(String[] args) {
         //arreglos1();
         //listarAbuelos();
-        listarAbuelosArrayList();
+        //listarAbuelosArrayList();
+        listarAbuelosLambda();
+        //listarAbuelosOrdenado();
+        listarAbuelosOrdenadaLambda();
+
     }
 
     static void arreglos1(){
@@ -56,8 +62,65 @@ public class Arreglos {
         for(Abuelo abuelos : listarAbuelos){
             System.out.println(abuelos);
         }
-
     }
 
+    static void listarAbuelosLambda(){
+        ArrayList<Abuelo> listarAbuelos = new ArrayList<>();
+        listarAbuelos.add(new Abuelo("Pedro","Masculino",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Juan","Masculino",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Rosa","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Zoila","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Maria","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Flor","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Angel","M",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Robert","Masculino",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("TEST","Masculino",(short) 75,"Loreto"));
+
+        listarAbuelos.forEach(data -> System.out.println(data));
+    }
+
+    static void listarAbuelosOrdenado(){
+        System.out.println("Listado de Forma Ordenada por el Nombre");
+
+        ArrayList<Abuelo> listarAbuelos = new ArrayList<>();
+        listarAbuelos.add(new Abuelo("Pedro","Masculino",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Juan","Masculino",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Rosa","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Zoila","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Maria","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Flor","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Angel","M",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Robert","Masculino",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("TEST","Masculino",(short) 75,"Loreto"));
+
+        Collections.sort(listarAbuelos, new Comparator<Abuelo>() {
+            @Override
+            public int compare(Abuelo o1, Abuelo o2) {
+                return o1.getNombre().compareToIgnoreCase(o2.getNombre());
+            }
+        });
+
+        for(Abuelo abuelos : listarAbuelos){
+            System.out.println(abuelos);
+        }
+    }
+
+    static void listarAbuelosOrdenadaLambda(){
+        System.out.println("Listado de Forma Ordenada por el Nombre con Lambdas");
+
+        ArrayList<Abuelo> listarAbuelos = new ArrayList<>();
+        listarAbuelos.add(new Abuelo("Pedro","Masculino",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Juan","Masculino",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Rosa","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Zoila","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Maria","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Flor","F",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Angel","M",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("Robert","Masculino",(short) 75,"Loreto"));
+        listarAbuelos.add(new Abuelo("TEST","Masculino",(short) 75,"Loreto"));
+
+        listarAbuelos.sort((a1, a2) -> a1.getNombre().compareToIgnoreCase(a2.getNombre()));
+        listarAbuelos.forEach(data -> System.out.println(data));
+    }
 
 }

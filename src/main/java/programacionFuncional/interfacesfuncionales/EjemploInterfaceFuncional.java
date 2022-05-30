@@ -4,7 +4,7 @@ package programacionFuncional.interfacesfuncionales;
 public interface EjemploInterfaceFuncional {
 
     //Sólo debe tener un método abstracto
-    String Saludar();
+    void Saludar(String saludo);
 
     default int sumar(int a, int b){
         return a + b;
